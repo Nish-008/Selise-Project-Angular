@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component ,OnInit } from '@angular/core';
 import { FormGroup, FormBuilder,Validators } from '@angular/forms';
 
 
@@ -7,7 +7,7 @@ import { FormGroup, FormBuilder,Validators } from '@angular/forms';
   templateUrl: './dialog.component.html',
   styleUrls: ['./dialog.component.css']
 })
-export class DialogComponent {
+export class DialogComponent implements OnInit {
 productForm !: FormGroup;
 constructor(private formBuilder: FormBuilder) {}
 
