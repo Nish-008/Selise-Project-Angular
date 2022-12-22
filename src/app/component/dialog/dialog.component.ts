@@ -13,15 +13,26 @@ constructor(private formBuilder: FormBuilder) {}
 
 ngOnInit(): void{
   this.productForm = this.formBuilder.group({
+
     productName : ['', Validators.required],
     productShortCode : ['', Validators.required],
     category : ['', Validators.required],
     price : ['', Validators.required],
     description : ['', Validators.required],
     imageUrl : [''],
+    quantity :['',Validators.required],
     isBestArchieved : ['', Validators.required],
     createdDate : ['', Validators.required],
     origin : ['', Validators.required]
+    // productName : ['', Validators.required,Validators.minLength(3), Validators.maxLength(50)],
+    // productShortCode : ['', Validators.required,Validators.minLength(3), Validators.maxLength(50)],
+    // category : ['', Validators.required],
+    // price : ['', Validators.required],
+    // description : ['', Validators.required,Validators.minLength(3), Validators.maxLength(250)],
+    // imageUrl : [''],
+    // isBestArchieved : ['', Validators.required],
+    // createdDate : ['', Validators.required],
+    // origin : ['', Validators.required]
   })
 }
 addProduct(){

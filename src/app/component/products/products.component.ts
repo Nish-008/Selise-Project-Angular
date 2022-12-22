@@ -18,6 +18,7 @@ export class ProductsComponent implements OnInit {
   ngOnInit(): void {
     this.api.getProduct()
     .subscribe(res=>{
+      console.log(res);
       this.productList = res;
       this.filterCategory = res;
       this.productList.forEach((a:any) => {
