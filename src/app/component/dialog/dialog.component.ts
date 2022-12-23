@@ -1,7 +1,7 @@
 import { Component ,OnInit } from '@angular/core';
 import { FormGroup, FormBuilder,Validators } from '@angular/forms';
-
-
+import { ApiService } from 'src/app/service/api.service';
+import { MatDialogRef } from '@angular/material/dialog';
 @Component({
   selector: 'app-dialog',
   templateUrl: './dialog.component.html',
@@ -9,7 +9,7 @@ import { FormGroup, FormBuilder,Validators } from '@angular/forms';
 })
 export class DialogComponent implements OnInit {
 productForm !: FormGroup;
-constructor(private formBuilder: FormBuilder) {}
+constructor(private formBuilder : FormBuilder, private api: ApiService, private dialogRef: MatDialogRef<DialogComponent>) {}
 
 ngOnInit(): void{
   this.productForm = this.formBuilder.group({
@@ -24,7 +24,49 @@ ngOnInit(): void{
     isBestArchieved : ['', Validators.required],
     createdDate : ['', Validators.required],
     origin : ['', Validators.required]
-    // productName : ['', Validators.required,Validators.minLength(3), Validators.maxLength(50)],
+  })
+}
+// addProduct(productName:any, productShortCode:any, category:any, price:any, description:any, imageUrl:any, quantity:any, isBestArchieved:any, createdDate:any, origin:any)
+// {
+//   this.http.post('http://localhost:3000/products', {
+//     "productName": productName.value,
+//     "productShortCode":productShortCode.value,
+//     "category": category.value,
+//     "price": price.value,
+//     "description": description.value,
+//     "imageUrl": imageUrl.value,
+//     "quantity": quantity.value,
+//     "isBestArchieved": isBestArchieved.value,
+//     "createdDate": createdDate.value,
+//     "origin": origin.value
+//   }).subscribe({
+//     next:(res)=>{
+//       alert('Product added successfully')
+//     },
+//     error:()=>{
+//       alert('Error while adding the product')
+//     }
+//   });
+// }
+
+addProduct(){
+  // console.log(this.productForm.value);
+  if(this.productForm.valid){
+    this.api.postProduct(this.productForm.value)
+    .subscribe({
+      next:(res)=>{
+        alert('Product added successfully');
+        this.productForm.reset();
+        this.dialogRef.close('save');
+      },
+      error:()=>{
+        alert('Error while adding the product')
+      }
+    })
+  }
+}
+
+// productName : ['', Validators.required,Validators.minLength(3), Validators.maxLength(50)],
     // productShortCode : ['', Validators.required,Validators.minLength(3), Validators.maxLength(50)],
     // category : ['', Validators.required],
     // price : ['', Validators.required],
@@ -33,10 +75,5 @@ ngOnInit(): void{
     // isBestArchieved : ['', Validators.required],
     // createdDate : ['', Validators.required],
     // origin : ['', Validators.required]
-  })
-}
-addProduct(){
-  console.log(this.productForm.value);
-}
 
 }

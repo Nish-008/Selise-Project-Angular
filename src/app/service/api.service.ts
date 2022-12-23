@@ -14,4 +14,15 @@ export class ApiService {
       return res;
     }))
   }
+  postProduct(data: any){
+    return this.http.post<any>("http://localhost:3000/products", data);
+  }
+
+
+  // getAllProduct(){
+  //   return this.http.get<any>("http://localhost:3000/products")
+  //   .pipe(map((res:any)=>{
+  //     return res;
+  //   }))
+  // }
 }
