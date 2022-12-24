@@ -21,7 +21,8 @@ import {MatNativeDateModule} from '@angular/material/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator'; 
-import {MatSortModule} from '@angular/material/sort'; 
+import {MatSortModule} from '@angular/material/sort';
+import { DetailsComponent } from './component/details/details.component'; 
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +31,8 @@ import {MatSortModule} from '@angular/material/sort';
     ProductsComponent,
     FilterPipe,
     ProductlistComponent,
-    DialogComponent
+    DialogComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,

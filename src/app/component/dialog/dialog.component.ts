@@ -2,6 +2,7 @@ import { Component ,OnInit } from '@angular/core';
 import { FormGroup, FormBuilder,Validators } from '@angular/forms';
 import { ApiService } from 'src/app/service/api.service';
 import { MatDialogRef } from '@angular/material/dialog';
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-dialog',
   templateUrl: './dialog.component.html',
@@ -9,7 +10,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 export class DialogComponent implements OnInit {
 productForm !: FormGroup;
-constructor(private formBuilder : FormBuilder, private api: ApiService, private dialogRef: MatDialogRef<DialogComponent>) {}
+constructor(private formBuilder : FormBuilder, private api: ApiService, private dialogRef: MatDialogRef<DialogComponent>, private http: HttpClient) {}
 
 ngOnInit(): void{
   this.productForm = this.formBuilder.group({
@@ -50,19 +51,14 @@ ngOnInit(): void{
 // }
 
 addProduct(){
-  // console.log(this.productForm.value);
+  console.log(this.productForm.value);
   if(this.productForm.valid){
-    this.api.postProduct(this.productForm.value)
-    .subscribe({
-      next:(res)=>{
-        alert('Product added successfully');
-        this.productForm.reset();
-        this.dialogRef.close('save');
-      },
-      error:()=>{
-        alert('Error while adding the product')
-      }
-    })
+    this.http.post("http://localhost:3000/products", this.productForm.value)
+    .subscribe(data => {
+      console.log(data);
+      console.log(this.productForm.value);
+    });
+    }
   }
 }
 
@@ -76,4 +72,3 @@ addProduct(){
     // createdDate : ['', Validators.required],
     // origin : ['', Validators.required]
 
-}
