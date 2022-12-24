@@ -2,7 +2,6 @@ import { Component ,OnInit } from '@angular/core';
 import { FormGroup, FormBuilder,Validators } from '@angular/forms';
 import { ApiService } from 'src/app/service/api.service';
 import { MatDialogRef } from '@angular/material/dialog';
-import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-dialog',
   templateUrl: './dialog.component.html',
@@ -10,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class DialogComponent implements OnInit {
 productForm !: FormGroup;
-constructor(private formBuilder : FormBuilder, private api: ApiService, private dialogRef: MatDialogRef<DialogComponent>, private http: HttpClient) {}
+constructor(private formBuilder : FormBuilder, private api: ApiService, private dialogRef: MatDialogRef<DialogComponent>) {}
 
 ngOnInit(): void{
   this.productForm = this.formBuilder.group({
@@ -53,14 +52,27 @@ ngOnInit(): void{
 addProduct(){
   console.log(this.productForm.value);
   if(this.productForm.valid){
-    this.http.post("http://localhost:3000/products", this.productForm.value)
-    .subscribe(data => {
-      console.log(data);
-      console.log(this.productForm.value);
-    });
-    }
+    this.api.postProduct(this.productForm.value)
+    .subscribe({
+      next:(res)=>{
+        alert('Product added successfully');
+        this.productForm.reset();
+        this.dialogRef.close('save');
+      },
+      error:()=>{
+        alert('Error while adding the product')
+      }
+    })
   }
 }
+// if(this.productForm.valid){
+//   this.http.post("http://localhost:3000/products", this.productForm.value)
+//   .subscribe(data => {
+//     console.log(data);
+//     console.log(this.productForm.value);
+//   });
+//   }
+// }
 
 // productName : ['', Validators.required,Validators.minLength(3), Validators.maxLength(50)],
     // productShortCode : ['', Validators.required,Validators.minLength(3), Validators.maxLength(50)],
@@ -72,3 +84,4 @@ addProduct(){
     // createdDate : ['', Validators.required],
     // origin : ['', Validators.required]
 
+}
