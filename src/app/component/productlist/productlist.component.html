@@ -1,10 +1,6 @@
 <button mat-stroked-button style="background: rgb(125, 99, 210);" (click)="openDialog()" >Add Product</button>
 <div class="container">
     <div style="margin-top: 10px;">
-      <mat-form-field>
-        <mat-label>Filter</mat-label>
-        <input matInput placeholder="Ex. Mia" #input>
-      </mat-form-field>
       
       <div class="mat-elevation-z8">
         <table mat-table [dataSource]="dataSource" matSort>

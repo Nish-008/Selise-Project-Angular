@@ -1,66 +1,66 @@
 <mat-dialog-content class="mat-typography">
-    <h3>Add Product Form</h3>
-    <form [formGroup]="productForm" >
+  <h3>Add Product Form</h3>
+  <form [formGroup]="productForm" >
+      <mat-form-field appearance="outline">
+          <mat-label>Product Name</mat-label>
+          <input formControlName="productName" matInput placeholder="Name">
+        </mat-form-field>
         <mat-form-field appearance="outline">
-            <mat-label>Product Name</mat-label>
-            <input formControlName="productName" matInput placeholder="Name">
+          <mat-label>Product ShortCode</mat-label>
+          <input formControlName="productShortCode" matInput placeholder="Short Code">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Product Category</mat-label>
+      <select formControlName="category" matNativeControl required>
+        <option value="Electronics">Electronics</option>
+        <option value="Fashion">Fashion</option>
+        <option value="Books">Books</option>
+        <option value="Accessories">Accessories</option>
+      </select>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Price</mat-label>
+            <input  formControlName="price" matInput placeholder="Price">
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Description</mat-label>
+            <textarea formControlName="description" matInput placeholder="Description"></textarea>
           </mat-form-field>
           <mat-form-field appearance="outline">
-            <mat-label>Product ShortCode</mat-label>
-            <input formControlName="productShortCode" matInput placeholder="Short Code">
+            <mat-label>Image URL</mat-label>
+            <input formControlName="imageUrl" matInput placeholder="Image URL">
           </mat-form-field>
           <mat-form-field appearance="outline">
-            <mat-label>Product Category</mat-label>
-        <select formControlName="category" matNativeControl required>
-          <option value="Electronics">Electronics</option>
-          <option value="Fashion">Fashion</option>
-          <option value="Books">Books</option>
-          <option value="Accessories">Accessories</option>
+            <mat-label>Quantity</mat-label>
+            <input type="number" formControlName="quantity" matInput placeholder="Quantity">
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Is Best Archieved</mat-label>
+        <select formControlName="isBestArchieved" matNativeControl required>
+          <option value="true">Yes</option>
+          <option value="false">No</option>
         </select>
           </mat-form-field>
           <mat-form-field appearance="outline">
-              <mat-label>Price</mat-label>
-              <input  formControlName="price" matInput placeholder="Price">
-            </mat-form-field>
-            <mat-form-field class="example-full-width">
-              <mat-label>Description</mat-label>
-              <textarea formControlName="description" matInput placeholder="Description"></textarea>
-            </mat-form-field>
-            <mat-form-field appearance="outline">
-              <mat-label>Image URL</mat-label>
-              <input formControlName="imageUrl" matInput placeholder="Image URL">
-            </mat-form-field>
-            <mat-form-field appearance="outline">
-              <mat-label>Quantity</mat-label>
-              <input type="number" formControlName="quantity" matInput placeholder="Quantity">
-            </mat-form-field>
-            <mat-form-field appearance="outline">
-              <mat-label>Is Best Archieved</mat-label>
-          <select formControlName="isBestArchieved" matNativeControl required>
-            <option value="true">Yes</option>
-            <option value="false">No</option>
-          </select>
-            </mat-form-field>
-            <mat-form-field appearance="outline">
-              <mat-label>Created Date</mat-label>
-              <input formControlName="createdDate" matInput [matDatepicker]="picker">
-              <mat-hint>MM/DD/YYYY</mat-hint>
-              <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-              <mat-datepicker #picker></mat-datepicker>
-            </mat-form-field>
-            <mat-form-field appearance="outline">  
-              <mat-label>Origin</mat-label>
-          <select formControlName="origin" matNativeControl required>
-            <option value="Shop">Shop</option>
-            <option value="Individual">Individual</option>
-          </select>
-            </mat-form-field>
-          </form>
-  </mat-dialog-content>
-  <mat-dialog-actions align="end">
-    <button mat-raised-button color="warn" mat-dialog-close>Close</button>
-    <button mat-raised-button color="primary" (click)="addProduct()">Save</button>
-  </mat-dialog-actions>
+            <mat-label>Created Date</mat-label>
+            <input formControlName="createdDate" matInput [matDatepicker]="picker">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+          <mat-form-field appearance="outline">  
+            <mat-label>Origin</mat-label>
+        <select formControlName="origin" matNativeControl required>
+          <option value="Shop">Shop</option>
+          <option value="Individual">Individual</option>
+        </select>
+          </mat-form-field>
+        </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+  <button mat-raised-button color="primary" (click)="addProduct()">Save</button>
+</mat-dialog-actions>
 <!-- ProductName (required, min-3, max-50)
 ProductShortCode (required, min-3, max-50)
 Category (required, Dropdown)
