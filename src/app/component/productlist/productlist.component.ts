@@ -20,7 +20,7 @@ export class ProductlistComponent implements OnInit{
   prodData: any;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
-  // @ViewChild(MatSort) sort!: MatSort;
+  @ViewChild(MatSort) sort!: MatSort;
   
   constructor(public dialog: MatDialog, private api: ApiService) {}
   ngOnInit(): void {
@@ -42,19 +42,12 @@ export class ProductlistComponent implements OnInit{
       this.prodData = result;
       this.dataSource= new MatTableDataSource(this.prodData)
       this.dataSource.paginator = this.paginator;
+      this.dataSource.sort= this.sort;
     })
   }
-
-// getAllProduct(){
-//   this.api.getProduct()
-//   .subscribe({
-//     next:(res)=>{
-//       console.log(res);
-//       this.dataSource= new MatTableDataSource(res);
-//       this.dataSource.paginator = this.paginator;
-//       this.dataSource.sort= this.sort;
-//     }
-//   })
-// }
+  filterchange(event: Event){
+    const filvalue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter= filvalue;
+  }
 
 }
