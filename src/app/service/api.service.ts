@@ -18,11 +18,12 @@ export class ApiService {
     return this.http.post("http://localhost:3000/products", data);
   }
 
+  patchProduct(data: any,id: string) {
+    return this.http.patch<any>("http://localhost:3000/products/"+id, data);
+  }
 
-  // getAllProduct(){
-  //   return this.http.get<any>("http://localhost:3000/products")
-  //   .pipe(map((res:any)=>{
-  //     return res;
-  //   }))
-  // }
+  deleteProduct(id: string){
+    return this.http.delete("http://localhost:3000/products/"+id);
+  }
+
 }

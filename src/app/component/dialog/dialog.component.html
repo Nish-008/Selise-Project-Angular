@@ -59,14 +59,5 @@
 </mat-dialog-content>
 <mat-dialog-actions align="end">
   <button mat-raised-button color="warn" mat-dialog-close>Close</button>
-  <button mat-raised-button color="primary" (click)="addProduct()">Save</button>
+  <button mat-raised-button color="primary" (click)="addProduct()">{{actionBtn}}</button>
 </mat-dialog-actions>
-<!-- ProductName (required, min-3, max-50)
-ProductShortCode (required, min-3, max-50)
-Category (required, Dropdown)
-Price (required, Number)
-Description (optional, min-3, max-250)
-ImageUrl (string, optional)
-IsBestAchived (boolean)
-CreatedDate (Date picker) (required, max-current-date)
-Origin (required, Dropdown) -->

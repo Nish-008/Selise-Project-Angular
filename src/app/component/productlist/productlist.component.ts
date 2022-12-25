@@ -35,6 +35,9 @@ export class ProductlistComponent implements OnInit{
    
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
+      if(result== 'save'){
+        this.getAllProduct();
+      }
     });
   }
   getAllProduct(){
@@ -48,6 +51,33 @@ export class ProductlistComponent implements OnInit{
   filterchange(event: Event){
     const filvalue = (event.target as HTMLInputElement).value;
     this.dataSource.filter= filvalue;
+  }
+
+  editProduct(element:any){
+    this.dialog.open(DialogComponent,{
+      width: '30%',
+      data: element
+    }).afterClosed().subscribe(val=>{
+      if(val=='update'){
+        this.getAllProduct();
+      }
+    })
+  }
+
+  deleteProduct(id: string){
+    this.api.deleteProduct(id)
+    .subscribe(
+      {
+        next:(res)=>{
+          alert("Product deleted successfuly");
+          this.getAllProduct();
+        },
+        error:()=>{
+          alert("Error while deleting the product");
+        }
+      }
+    )
+
   }
 
 }
