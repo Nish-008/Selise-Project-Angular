@@ -26,4 +26,11 @@ export class ApiService {
     return this.http.delete("http://localhost:3000/products/"+id);
   }
 
+  getProductById(id: string){
+    return this.http.get("http://localhost:3000/products/"+id)
+    .pipe(map((res:any)=>{
+      return res;
+    }))
+  }
+
 }

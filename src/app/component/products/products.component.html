@@ -30,7 +30,7 @@
 <div class="container">
     <div class="row">
         <ng-container *ngFor="let item of filterCategory | filter: searchKey:'productName'"> <div class="card col-md-3">
-            <img src="{{item.imageUrl}}" alt="">  
+            <img src="{{item.imageUrl}}" alt=""> 
             <h5 style="white-space: nowrap; overflow: hidden; text-overflow:ellipsis; max-width: 100ch;">{{item.productName}}</h5>
             <p style="white-space: nowrap; overflow: hidden; text-overflow:ellipsis; max-width: 100ch;">{{item.description}}</p>
             <p><strong>Price:</strong>${{item.price}}</p>

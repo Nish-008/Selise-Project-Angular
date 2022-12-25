@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CartComponent } from './component/cart/cart.component';
 import { ProductsComponent } from './component/products/products.component';
 import { ProductlistComponent } from './component/productlist/productlist.component';
+import { DetailsComponent } from './component/details/details.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'home',pathMatch:'full'},

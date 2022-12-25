@@ -1,7 +1,11 @@
 .card {
-    height: 60vh;
+    height: 70vh;
     margin: 25px;
     padding: 25px;
+}
+.card-title{
+    text-align: center;
+  text-transform: uppercase;
 }
 .center img {
     text-decoration: none;
@@ -41,3 +45,11 @@ h4,h6{
     padding: 12px 72px;
     border-radius: 3px !important;
 }
+.example-card {
+    max-width: 400px;
+  }
+  
+  /* .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  } */
