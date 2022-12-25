@@ -26,28 +26,6 @@ ngOnInit(): void{
     origin : ['', Validators.required]
   })
 }
-// addProduct(productName:any, productShortCode:any, category:any, price:any, description:any, imageUrl:any, quantity:any, isBestArchieved:any, createdDate:any, origin:any)
-// {
-//   this.http.post('http://localhost:3000/products', {
-//     "productName": productName.value,
-//     "productShortCode":productShortCode.value,
-//     "category": category.value,
-//     "price": price.value,
-//     "description": description.value,
-//     "imageUrl": imageUrl.value,
-//     "quantity": quantity.value,
-//     "isBestArchieved": isBestArchieved.value,
-//     "createdDate": createdDate.value,
-//     "origin": origin.value
-//   }).subscribe({
-//     next:(res)=>{
-//       alert('Product added successfully')
-//     },
-//     error:()=>{
-//       alert('Error while adding the product')
-//     }
-//   });
-// }
 
 addProduct(){
   console.log(this.productForm.value);
@@ -73,15 +51,5 @@ addProduct(){
 //   });
 //   }
 // }
-
-// productName : ['', Validators.required,Validators.minLength(3), Validators.maxLength(50)],
-    // productShortCode : ['', Validators.required,Validators.minLength(3), Validators.maxLength(50)],
-    // category : ['', Validators.required],
-    // price : ['', Validators.required],
-    // description : ['', Validators.required,Validators.minLength(3), Validators.maxLength(250)],
-    // imageUrl : [''],
-    // isBestArchieved : ['', Validators.required],
-    // createdDate : ['', Validators.required],
-    // origin : ['', Validators.required]
 
 }

@@ -1,50 +1,51 @@
-<button mat-stroked-button style="background: rgb(125, 99, 210);" (click)="openDialog()" >Add Product</button>
-<div class="container">
-    <div style="margin-top: 10px;">
-      
-      <div class="mat-elevation-z8">
-        <table mat-table [dataSource]="dataSource" matSort>
-      
-          <!-- ID Column -->
-          <ng-container matColumnDef="productName">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Product Name</th>
-            <td mat-cell *matCellDef="let row"> {{row.productName}} </td>
-          </ng-container>
-      
-          <!-- Progress Column -->
-          <ng-container matColumnDef="category">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Category </th>
-            <td mat-cell *matCellDef="let row"> {{row.category}} </td>
-          </ng-container>
-      
-          <!-- Name Column -->
-          <ng-container matColumnDef="price">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Price </th>
-            <td mat-cell *matCellDef="let row"> {{row.price}} </td>
-          </ng-container>
-      
-          <!-- Fruit Column -->
-          <ng-container matColumnDef="quantity">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Quantity </th>
-            <td mat-cell *matCellDef="let row"> {{row.quantity}} </td>
-          </ng-container>
-
-          <ng-container matColumnDef="isBestArchieved">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Is Best Archieved </th>
-            <td mat-cell *matCellDef="let row"> {{row.isBestArchieved}} </td>
-          </ng-container>
-
-          <ng-container matColumnDef="createdDate">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Created Date </th>
-            <td mat-cell *matCellDef="let row"> {{row.createdDate}} </td>
-          </ng-container>
-      
-          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-      
-        </table>
-         
-        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
-      </div>        
-    </div>
+<div class="demo-button-container">
+  <button mat-raised-button (click)="openDialog()" class="demo-button">
+    Add Product
+  </button>
 </div>
+<!-- <button mat-stroked-button style="background: rgb(125, 99, 210);" (click)="openDialog()" >Add Product</button> -->
+<table mat-table [dataSource]="prodData" class="mat-elevation-z8">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="productName">
+    <th mat-header-cell *matHeaderCellDef> Product Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.productName}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="category">
+    <th mat-header-cell *matHeaderCellDef> Category </th>
+    <td mat-cell *matCellDef="let element"> {{element.category}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="price">
+    <th mat-header-cell *matHeaderCellDef> Price </th>
+    <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="quantity">
+    <th mat-header-cell *matHeaderCellDef> Quantity </th>
+    <td mat-cell *matCellDef="let element"> {{element.quantity}} </td>
+  </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="isBestArchieved">
+      <th mat-header-cell *matHeaderCellDef> Is Best Archieved </th>
+      <td mat-cell *matCellDef="let element"> {{element.isBestArchieved}} </td>
+    </ng-container>
+
+      <!-- Symbol Column -->
+  <ng-container matColumnDef="createdDate">
+    <th mat-header-cell *matHeaderCellDef> Created Date </th>
+    <td mat-cell *matCellDef="let element"> {{element.createdDate}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
