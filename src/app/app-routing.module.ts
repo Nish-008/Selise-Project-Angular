@@ -9,7 +9,8 @@ const routes: Routes = [
   {path:'',redirectTo:'home',pathMatch:'full'},
   {path:'home',component: ProductsComponent},
   {path:'my-cart',component: CartComponent},
-  {path:'products',component: ProductlistComponent}
+  {path:'products',component: ProductlistComponent},
+  {path:'details/:id',component: DetailsComponent}
 
 ];
 

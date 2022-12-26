@@ -47,9 +47,5 @@ h4,h6{
 }
 .example-card {
     max-width: 400px;
+    margin-bottom: 8px;
   }
-  
-  /* .example-header-image {
-    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-    background-size: cover;
-  } */

@@ -6,27 +6,26 @@
              <thead>
                     <tr>
                         <th>Sr. No</th>
-                        <th>Product Name</th>
-                        <th>Product Image</th>
-                        <th>Description</th>
-                        <th>Price</th>
-                        <th>Quantity</th>
-                        <th>Total</th>
-                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let item of product; let i = index">
                         <td>{{i+1}}</td>
-                        <td>{{item.title}}</td>
-                        <td><img style="width: 120px;" src="{{item.imageUrl}}" alt=""></td>
-                        <td style="width: 25%;">{{item.description}}</td>
-                        <td style="width: 12%;">{{item.price}}</td>
-                        <td style="width: 12%;">{{item.quantity}}</td>
-                        <td style="width: 12%;">{{item.total}}</td>
-                        <td>
+                        <td><mat-card class="example-card">
+                            <mat-card-header>
+                              <mat-card-title-group>
+                                <mat-card-title>{{item.productName}}</mat-card-title>
+                                <mat-card-subtitle style="color: black;"> <b>${{item.price}}</b></mat-card-subtitle>
+                                <img mat-card-sm-image src="{{item.imageUrl}}" >
+                              </mat-card-title-group>
+                            </mat-card-header>
+                            <mat-card-content>
+                                {{item.description}}
+                            </mat-card-content>
+                          </mat-card></td> 
+                          <td>
                             <button (click)="removeItem(item)" class="btn btn-primary"><i class="fas fa-trash-alt"></i></button>
-                        </td>
+                        </td> 
 
                     </tr>
                     <tr>
@@ -57,25 +56,3 @@
         </div>
     </div>
 </ng-container>
-
-<!-- <td><mat-card class="example-card">
-    <mat-card-header>
-      <mat-card-title>{{item.productName}}</mat-card-title>
-      <mat-card-subtitle>{{item.category}}</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image src="{{item.imageUrl}}" alt="Photo of a Shiba Inu">
-    <mat-card-content>
-      <p>
-        {{item.description}}
-      </p>
-    </mat-card-content>
-    <mat-card-content>
-       <h1>{{item.quantity}}</h1>
-      </mat-card-content>
-      <mat-card-content>
-        <h1>{{item.price}}</h1>
-       </mat-card-content>
-  </mat-card> </td> 
-  <td>
-    <button (click)="removeItem(item)" class="btn btn-primary"><i class="fas fa-trash-alt"></i></button>
-</td> -->

@@ -22,6 +22,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator'; 
 import {MatSortModule} from '@angular/material/sort';
+import { DetailsComponent } from './component/details/details.component';
+import {MatCardModule} from '@angular/material/card';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +32,8 @@ import {MatSortModule} from '@angular/material/sort';
     ProductsComponent,
     FilterPipe,
     ProductlistComponent,
-    DialogComponent
+    DialogComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +51,8 @@ import {MatSortModule} from '@angular/material/sort';
     BrowserAnimationsModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

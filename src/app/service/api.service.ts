@@ -27,7 +27,7 @@ export class ApiService {
   }
 
   getProductById(id: string){
-    return this.http.get("http://localhost:3000/products/"+id)
+    return this.http.get<any>("http://localhost:3000/products/"+id)
     .pipe(map((res:any)=>{
       return res;
     }))
