@@ -14,7 +14,6 @@ export class CartComponent {
    this.cartService.getProducts()
    .subscribe(res=>{
     this.product = res;
-    // this.product.total= (this.product.price*this.product.total);
     this.grandTotal= this.cartService.getTotalPrice();
    })
   }
@@ -24,5 +23,4 @@ export class CartComponent {
   emptycart(){
     this.cartService.removeAllCart();
   }
-
 }
