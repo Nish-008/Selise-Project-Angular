@@ -24,7 +24,7 @@
     padding: 20px;
 }
 .card img{
-    width: 200px;
+    width: 300px;
     height: 200px;
     margin-bottom: 15px;
     transition: 0.3s ease-in-out;
@@ -32,4 +32,7 @@
 .card img:hover{
     transition: 0.3s ease-in-out;
     transform: scale(1.1);
+}
+span{
+    align-items: center;
 }

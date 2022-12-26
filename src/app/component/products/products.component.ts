@@ -33,6 +33,16 @@ export class ProductsComponent implements OnInit {
     })
    
   }
+  
+  inc(item: any){
+    item.quantity = item.quantity+1;
+  }
+ 
+  dec(item:any){
+    if(item.quantity !=1){
+      item.quantity = item.quantity-1;
+    }
+  }
   addtocart(item: any){
     this.cartService.addtoCart(item);
   }
@@ -44,5 +54,4 @@ export class ProductsComponent implements OnInit {
       }
     }) 
   }
-
 }
