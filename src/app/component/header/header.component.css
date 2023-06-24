@@ -10,3 +10,17 @@
     top: 20px;
     color: blue;
 }
+.search-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .search-container .form-control {
+    margin-right: 10px;
+  }
+  
+  .login-signup a {
+    margin-left: 10px;
+    text-decoration: none;
+  }
+  

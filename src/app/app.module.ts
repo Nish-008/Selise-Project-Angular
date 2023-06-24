@@ -24,6 +24,10 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
 import { DetailsComponent } from './component/details/details.component';
 import {MatCardModule} from '@angular/material/card';
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
+import { UserlistingComponent } from './userlisting/userlisting.component';
+import { UpdatepopupComponent } from './updatepopup/updatepopup.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +37,11 @@ import {MatCardModule} from '@angular/material/card';
     FilterPipe,
     ProductlistComponent,
     DialogComponent,
-    DetailsComponent
+    DetailsComponent,
+    RegisterComponent,
+    LoginComponent,
+    UserlistingComponent,
+    UpdatepopupComponent
   ],
   imports: [
     BrowserModule,
